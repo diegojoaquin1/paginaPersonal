@@ -6,15 +6,13 @@ import {
     signOut 
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-// --- ELEMENTOS DEL DOM ---
 const loginForm = document.getElementById("login-form");
 const registerForm = document.getElementById("register-form");
 const authStatus = document.getElementById("auth-status");
 
-// --- FUNCIONALIDAD: INICIAR SESIÓN ---
 if (loginForm) {
     loginForm.addEventListener("submit", async (e) => {
-        e.preventDefault(); // Evita que la página se refresque y se borren los datos
+        e.preventDefault(); 
         
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
@@ -26,7 +24,7 @@ if (loginForm) {
 
             await signInWithEmailAndPassword(auth, email, password);
             alert("¡Bienvenido a Goal Temple!");
-            window.location.href = "index.html"; // Redirige al inicio
+            window.location.href = "index.html"; 
         } catch (error) {
             btn.innerText = "Ingresar";
             btn.disabled = false;
@@ -63,10 +61,8 @@ if (registerForm) {
     });
 }
 
-// --- PERSISTENCIA: DETECTAR USUARIO LOGUEADO ---
 onAuthStateChanged(auth, (user) => {
     if (user && authStatus) {
-        // Si el usuario está dentro, cambiamos el botón de "Login" por su nombre y "Salir"
         authStatus.innerHTML = `
             <span style="color: white; margin-right: 10px;">Hola, ${user.email.split('@')[0]}</span>
             <a href="#" id="logout-btn" style="color: #ff4d4d;">Cerrar Sesión</a>
