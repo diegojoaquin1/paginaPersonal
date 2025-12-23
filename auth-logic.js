@@ -62,3 +62,20 @@ onAuthStateChanged(auth, (user) => {
         });
     }
 });
+onAuthStateChanged(auth, (user) => {
+    const authStatus = document.getElementById("auth-status");
+    if (user && authStatus) {
+        const name = user.email.split('@')[0];
+        authStatus.innerHTML = `
+            <div id="auth-container">
+                <span class="user-welcome">⚽ Hola, ${name}</span>
+                <a href="#" id="logout-btn" class="btn-logout">Salir</a>
+            </div>
+        `;
+
+        document.getElementById("logout-btn").addEventListener("click", (e) => {
+            e.preventDefault();
+            signOut(auth).then(() => window.location.reload());
+        });
+    }
+});
