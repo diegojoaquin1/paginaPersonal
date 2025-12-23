@@ -10,69 +10,55 @@ const loginForm = document.getElementById("login-form");
 const registerForm = document.getElementById("register-form");
 const authStatus = document.getElementById("auth-status");
 
-if (loginForm) {
-    loginForm.addEventListener("submit", async (e) => {
-        e.preventDefault(); 
-        
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        const btn = loginForm.querySelector("button");
-
-        try {
-            btn.innerText = "Ingresando...";
-            btn.disabled = true;
-
-            await signInWithEmailAndPassword(auth, email, password);
-            alert("¡Bienvenido a Goal Temple!");
-            window.location.href = "index.html"; 
-        } catch (error) {
-            btn.innerText = "Ingresar";
-            btn.disabled = false;
-            console.error("Error de login:", error.code);
-            alert("Error: Usuario o contraseña incorrectos.");
-        }
-    });
-}
-
 if (registerForm) {
     registerForm.addEventListener("submit", async (e) => {
         e.preventDefault();
-        
         const email = document.getElementById("reg-email").value;
         const password = document.getElementById("reg-password").value;
         const btn = document.getElementById("btn-registrar");
 
         try {
-            btn.innerText = "Creando cuenta...";
+            btn.innerText = "Cargando...";
             btn.disabled = true;
-
             await createUserWithEmailAndPassword(auth, email, password);
             alert("¡Cuenta creada con éxito!");
             window.location.href = "index.html";
         } catch (error) {
             btn.innerText = "Registrarse";
             btn.disabled = false;
-            if (error.code === 'auth/email-already-in-use') {
-                alert("Este correo ya está registrado.");
-            } else {
-                alert("Error: " + error.message);
-            }
+            console.error("Error de Firebase:", error.code);
+            alert("Error: " + error.message);
+        }
+    });
+}
+
+if (loginForm) {
+    loginForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            window.location.href = "index.html";
+        } catch (error) {
+            alert("Usuario o contraseña incorrectos");
         }
     });
 }
 
 onAuthStateChanged(auth, (user) => {
     if (user && authStatus) {
+        const name = user.email.split('@')[0];
         authStatus.innerHTML = `
-            <span style="color: white; margin-right: 10px;">Hola, ${user.email.split('@')[0]}</span>
-            <a href="#" id="logout-btn" style="color: #ff4d4d;">Cerrar Sesión</a>
+            <div id="auth-container">
+                <span class="user-welcome">⚽ Hola, ${name}</span>
+                <a href="#" id="logout-btn" class="btn-logout">Salir</a>
+            </div>
         `;
 
         document.getElementById("logout-btn").addEventListener("click", (e) => {
             e.preventDefault();
-            signOut(auth).then(() => {
-                alert("Sesión cerrada.");
-                window.location.reload();
-            });
+            signOut(auth).then(() => window.location.reload());
         });
     }
+});
