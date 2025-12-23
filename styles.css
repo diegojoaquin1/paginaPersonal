@@ -113,7 +113,6 @@ article p {
     box-shadow: 0 0 20px var(--accent-color);
 }
 
-/* --- 4. ESTRUCTURA DE TIENDA --- */
 .contenedor-vertical {
     width: 100%;
     max-width: 1400px;
@@ -315,7 +314,6 @@ article p {
     margin: 40px 0;
 }
 
-/* --- 8. RESPONSIVE --- */
 @media (max-width: 1000px) {
     .grid-productos-cinco { 
         grid-template-columns: repeat(3, 1fr); 
@@ -341,7 +339,6 @@ article p {
     padding-left: 15px;
 }
 
-/* El Grid de 5 columnas exactas */
 .grid-productos-cinco {
     display: grid;
     grid-template-columns: repeat(5, 1fr); 
@@ -392,4 +389,87 @@ article p {
     border-bottom: 2px solid var(--accent-color);
     display: inline-block;
     padding-bottom: 5px;
+}
+.login-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.login-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('imagenes/imagen_inicio.jpg'); 
+    background-size: cover;
+    padding: 20px;
+
+}
+
+.login-card {
+    background-color: var(--header-bg);
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0, 255, 65, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-card h2 {
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+.login-card p {
+    color: var(--em-color);
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+}
+
+.login-footer {
+    margin-top: 25px;
+    font-size: 0.85rem;
+}
+
+.login-footer a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.volver-atras {
+    display: block;
+    margin-top: 15px;
+    color: var(--em-color) !important;
 }
