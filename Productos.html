@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos | Goal Temple</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>GOAL <span>TEMPLE</span></h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="Productos.html">Productos</a>
+            <a href="AboutUs.html">Nosotros</a>
+            <a href="Contact.html">Contacto</a>
+        </nav>
+    </header>
+
+    <div id="productos-nav" class="productos-nav">
+        <a href="#calzado">Calzado</a>
+        <a href="#camisetas">Camisetas</a>
+        <a href="#entrenamiento">Entrenamiento</a>
+    </div>
+
+    <main class="contenedor-vertical">
+        
+        <section id="calzado" class="seccion-categoria">
+            <div class="cabecera-seccion">
+                <h2>Calzado <span>Profesional</span></h2>
+                <p>Domina el terreno con la mejor tecnología en chimpunes.</p>
+            </div>
+
+            <div class="grid-productos-cinco">
+                <div class="tarjeta-producto">
+                    <div class="imagen-placeholder"><img src="imagenes/calzado_1.png"></div>
+                    <div class="info-producto">
+                        <h3>Chimpunes Adidas Predator</h3>
+                        <p class="precio">100.00 PEN</p>
+                        <div class="compra-directa">
+                            <div class="selector-cantidad">
+                                <button type="button" onclick="cambiarCantidad(this, -1)">-</button>
+                                <input type="number" value="1" min="1" readonly>
+                                <button type="button" onclick="cambiarCantidad(this, 1)">+</button>
+                            </div>
+                            <button class="btn-comprar" onclick="agregarAlCarrito('Predator')">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </section>
+
+        <hr class="divisor-neon">
+
+        <section id="camisetas" class="seccion-categoria">
+            <div class="cabecera-seccion">
+                <h2>Camisetas <span>Oficiales</span></h2>
+                <p>Viste la piel de los mejores equipos del mundo.</p>
+            </div>
+
+            <div class="grid-productos-cinco">
+                <div class="tarjeta-producto">
+                    <div class="imagen-placeholder"><img src="imagenes/camiseta_1.webp"></div>
+                    <div class="info-producto">
+                        <h3>Camiseta FC Barcelona</h3>
+                        <p class="precio">129.00 PEN</p>
+                        <div class="compra-directa">
+                            <div class="selector-cantidad">
+                                <button type="button" onclick="cambiarCantidad(this, -1)">-</button>
+                                <input type="number" value="1" min="1" readonly>
+                                <button type="button" onclick="cambiarCantidad(this, 1)">+</button>
+                            </div>
+                            <button class="btn-comprar" onclick="agregarAlCarrito('Camiseta FCB')">Añadir al carrito</button>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </section>
+
+    </main>
+
+    <div class="botones-flotantes">
+        <button id="cart-toggle" class="floating-btn cart-btn" title="Ver Carrito">
+            🛒
+            <span id="cart-count">0</span>
+        </button>
+        <button id="theme-toggle" class="floating-btn" title="Cambiar Tema">🌙</button>
+    </div>
+
+    <script>
+        function cambiarCantidad(btn, delta) {
+            const input = btn.parentElement.querySelector('input');
+            let value = parseInt(input.value) + delta;
+            if (value < 1) value = 1;
+            input.value = value;
+        }
+
+        function agregarAlCarrito(nombre) {
+            // Aquí puedes conectar con tu lógica de Tienda.js más adelante
+            const count = document.getElementById('cart-count');
+            count.innerText = parseInt(count.innerText) + 1;
+            alert(nombre + " agregado al carrito");
+        }
+    </script>
+    <script src="Tema.js"></script>
+    <script src="Tienda.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Goal Temple | Inicio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Goal <span>Temple</span></h1>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="Productos.html">Productos</a>
+        <a href="AboutUs.html">Nosotros</a>
+        <a href="Contact.html">Contacto</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-content">
+        <article>
+          <h2>¡Bienvenido!</h2>
+          <em>"Donde tu pasión nace por el gol"</em>
+          <p>
+            Sabemos que el fútbol es más que un juego, es un estilo de vida.
+            Hemos seleccionado los mejores implementos para que cada
+            entrenamiento cuente.
+          </p>
+          <a href="Productos.html" class="btn-cta">Ver Implementos</a>
+        </article>
+      </section>
+    </main>
+
+    <section class="recomendaciones">
+      <h2 class="titulo-seccion">Artículos Recomendados</h2>
+
+      <div class="contenedor-grid">
+        <div class="tarjeta-producto">
+          <div class="imagen-placeholder">
+            <img src="imagenes/calzado_1.png" alt="Chimpunes Adidas" />
+          </div>
+          <div class="info-producto">
+            <h3>Chimpunes Adidas</h3>
+            <p class="precio">100.00 PEN</p>
+            <a href="producto.html?id=chimpunes-adidas" class="btn-comprar">Ver Detalle</a>
+          </div>
+        </div>
+
+        <div class="tarjeta-producto">
+          <div class="imagen-placeholder">
+            <img src="imagenes/balon_1.png" alt="Balón Mundial" />
+          </div>
+          <div class="info-producto">
+            <h3>Balón-Mundial 2026</h3>
+            <p class="precio">80.00 PEN</p>
+            <a href="producto.html?id=balon-elite" class="btn-comprar">Ver Detalle</a>
+          </div>
+        </div>
+
+        <div class="tarjeta-producto">
+          <div class="imagen-placeholder">
+            <img src="imagenes/camiseta_1.webp" alt="Camiseta Barcelona" />
+          </div>
+          <div class="info-producto">
+            <h3>Camiseta NIKE FC Barcelona</h3>
+            <p class="precio">128.00 PEN</p>
+            <a href="producto.html?id=camiseta-barcelona" class="btn-comprar">Ver Detalle</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="botones-flotantes">
+        <button id="cart-toggle" class="floating-btn cart-btn" title="Ver Carrito">
+            🛒
+            <span id="cart-count">0</span>
+        </button>
+        <button id="theme-toggle" class="floating-btn" title="Cambiar Tema">🌙</button>
+    </div>
+
+    <script src="Tema.js"></script>
+    <script src="Tienda.js"></script>
+  </body>
+</html>
