@@ -1,79 +1,16 @@
-import { auth } from "./firebase-config.js";
-import { 
-    signInWithEmailAndPassword, 
-    createUserWithEmailAndPassword, 
-    onAuthStateChanged, 
-    signOut 
-} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-const loginForm = document.getElementById("login-form");
-const registerForm = document.getElementById("register-form");
-const authStatus = document.getElementById("auth-status");
+const firebaseConfig = {
+  apiKey: "AIzaSyBJpNrmrUuqjdEALfJ6ly7t232D_JdIKHE",
+  authDomain: "goal-temple-2f12a.firebaseapp.com",
+  projectId: "goal-temple-2f12a",
+  storageBucket: "goal-temple-2f12a.firebasestorage.app",
+  messagingSenderId: "1000321025620",
+  appId: "1:1000321025620:web:d0e6fd4b074f78bfff4fc1",
+  measurementId: "G-JFNHVLKCCW"
+};
 
-if (loginForm) {
-    loginForm.addEventListener("submit", async (e) => {
-        e.preventDefault(); 
-        
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-        const btn = loginForm.querySelector("button");
+const app = initializeApp(firebaseConfig);
 
-        try {
-            btn.innerText = "Ingresando...";
-            btn.disabled = true;
-
-            await signInWithEmailAndPassword(auth, email, password);
-            alert("¡Bienvenido a Goal Temple!");
-            window.location.href = "index.html"; 
-        } catch (error) {
-            btn.innerText = "Ingresar";
-            btn.disabled = false;
-            console.error("Error de login:", error.code);
-            alert("Error: Usuario o contraseña incorrectos.");
-        }
-    });
-}
-
-if (registerForm) {
-    registerForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        
-        const email = document.getElementById("reg-email").value;
-        const password = document.getElementById("reg-password").value;
-        const btn = document.getElementById("btn-registrar");
-
-        try {
-            btn.innerText = "Creando cuenta...";
-            btn.disabled = true;
-
-            await createUserWithEmailAndPassword(auth, email, password);
-            alert("¡Cuenta creada con éxito!");
-            window.location.href = "index.html";
-        } catch (error) {
-            btn.innerText = "Registrarse";
-            btn.disabled = false;
-            if (error.code === 'auth/email-already-in-use') {
-                alert("Este correo ya está registrado.");
-            } else {
-                alert("Error: " + error.message);
-            }
-        }
-    });
-}
-
-onAuthStateChanged(auth, (user) => {
-    if (user && authStatus) {
-        authStatus.innerHTML = `
-            <span style="color: white; margin-right: 10px;">Hola, ${user.email.split('@')[0]}</span>
-            <a href="#" id="logout-btn" style="color: #ff4d4d;">Cerrar Sesión</a>
-        `;
-
-        document.getElementById("logout-btn").addEventListener("click", (e) => {
-            e.preventDefault();
-            signOut(auth).then(() => {
-                alert("Sesión cerrada.");
-                window.location.reload();
-            });
-        });
-    }
-});
+export const auth = getAuth(app);
