@@ -14,7 +14,9 @@
         <a href="Productos.html">Productos</a>
         <a href="AboutUs.html">Nosotros</a>
         <a href="Contact.html">Contacto</a>
-        <a href="login.html">Iniciar sesión</a>
+        <span id="auth-status">
+          <a href="login.html">Iniciar sesión</a>
+        </span>
       </nav>
     </header>
 
@@ -43,7 +45,9 @@
           <div class="info-producto">
             <h3>Chimpunes Adidas</h3>
             <p class="precio">100.00 PEN</p>
-            <a href="producto.html?id=chimpunes-adidas" class="btn-comprar">Ver Detalle</a>
+            <a href="producto.html?id=chimpunes-adidas" class="btn-comprar"
+              >Ver Detalle</a
+            >
           </div>
         </div>
         <div class="tarjeta-producto">
@@ -53,7 +57,9 @@
           <div class="info-producto">
             <h3>Balón-Mundial 2026</h3>
             <p class="precio">80.00 PEN</p>
-            <a href="producto.html?id=balon-elite" class="btn-comprar">Ver Detalle</a>
+            <a href="producto.html?id=balon-elite" class="btn-comprar"
+              >Ver Detalle</a
+            >
           </div>
         </div>
         <div class="tarjeta-producto">
@@ -63,20 +69,29 @@
           <div class="info-producto">
             <h3>Camiseta NIKE FC Barcelona</h3>
             <p class="precio">128.00 PEN</p>
-            <a href="producto.html?id=camiseta-barcelona" class="btn-comprar">Ver Detalle</a>
+            <a href="producto.html?id=camiseta-barcelona" class="btn-comprar"
+              >Ver Detalle</a
+            >
           </div>
         </div>
       </div>
     </section>
 
     <div class="botones-flotantes">
-        <button id="cart-toggle" class="floating-btn cart-btn" title="Ver Carrito">
-            🛒 <span id="cart-count">0</span>
-        </button>
-        <button id="theme-toggle" class="floating-btn" title="Cambiar Tema">🌙</button>
+      <button
+        id="cart-toggle"
+        class="floating-btn cart-btn"
+        title="Ver Carrito"
+      >
+        🛒 <span id="cart-count">0</span>
+      </button>
+      <button id="theme-toggle" class="floating-btn" title="Cambiar Tema">
+        🌙
+      </button>
     </div>
 
     <script src="tema.js"></script>
     <script src="tienda.js"></script>
+    <script type="module" src="auth-logic.js"></script>
   </body>
 </html>
