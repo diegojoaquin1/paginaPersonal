@@ -43,18 +43,11 @@
               <p class="precio">100.00 PEN</p>
               <div class="compra-directa">
                 <div class="selector-cantidad">
-                  <button type="button" onclick="ajustarCantidad(this, -1)">
-                    -
-                  </button>
+                  <button type="button" onclick="ajustarCantidad(this, -1)">-</button>
                   <input type="number" value="1" min="1" readonly />
-                  <button type="button" onclick="ajustarCantidad(this, 1)">
-                    +
-                  </button>
+                  <button type="button" onclick="ajustarCantidad(this, 1)">+</button>
                 </div>
-                <button
-                  class="btn-comprar"
-                  onclick="agregarAlCarrito('Predator', this)"
-                >
+                <button class="btn-comprar" onclick="agregarAlCarrito('Predator', this)">
                   Añadir al carrito
                 </button>
               </div>
@@ -80,18 +73,11 @@
               <p class="precio">129.00 PEN</p>
               <div class="compra-directa">
                 <div class="selector-cantidad">
-                  <button type="button" onclick="ajustarCantidad(this, -1)">
-                    -
-                  </button>
+                  <button type="button" onclick="ajustarCantidad(this, -1)">-</button>
                   <input type="number" value="1" min="1" readonly />
-                  <button type="button" onclick="ajustarCantidad(this, 1)">
-                    +
-                  </button>
+                  <button type="button" onclick="ajustarCantidad(this, 1)">+</button>
                 </div>
-                <button
-                  class="btn-comprar"
-                  onclick="agregarAlCarrito('Camiseta FCB', this)"
-                >
+                <button class="btn-comprar" onclick="agregarAlCarrito('Camiseta FCB', this)">
                   Añadir al carrito
                 </button>
               </div>
@@ -103,16 +89,17 @@
 
     <div id="cart-modal" class="cart-modal" style="display: none">
       <div class="cart-content">
-        <span
-          class="close-cart"
-          onclick="document.getElementById('cart-modal').style.display='none'"
-          >&times;</span
-        >
+        <span class="close-cart" onclick="document.getElementById('cart-modal').style.display='none'">&times;</span>
         <h2>Tu Carrito</h2>
         <hr />
+        
         <div id="cart-items-container"></div>
+        
         <div class="cart-footer">
-          <p>Total: <span id="cart-total">0.00</span> PEN</p>
+          <div class="total-line">
+            <span>TOTAL:</span>
+            <span class="total-amount"><span id="cart-total">0.00</span> PEN</span>
+          </div>
           <button class="btn-pagar">Finalizar Compra</button>
         </div>
       </div>
@@ -125,10 +112,8 @@
       <button id="theme-toggle" class="floating-btn">🌙</button>
     </div>
 
-<script src="tema.js"></script>
-
-<script type="module" src="auth-logic.js"></script>
-
-<script type="module" src="tienda.js"></script>
+    <script src="tema.js"></script>
+    <script type="module" src="auth-logic.js"></script>
+    <script type="module" src="tienda.js"></script>
   </body>
 </html>
