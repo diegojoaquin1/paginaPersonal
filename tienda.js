@@ -8,6 +8,7 @@ const modal = document.getElementById('cart-modal');
 const btnAbrirCarrito = document.getElementById('cart-toggle');
 const contenedorItems = document.getElementById('cart-items-container');
 const contadorVisual = document.getElementById('cart-count');
+const totalElemento = document.getElementById('cart-total'); 
 
 onAuthStateChanged(auth, async (user) => {
     if (user) {
@@ -28,7 +29,6 @@ window.onclick = (event) => {
     if (event.target == modal) modal.style.display = "none";
 };
 
-// 3. Funciones Globales para el HTML
 window.ajustarCantidad = function(boton, cambio) {
     const input = boton.parentElement.querySelector('input');
     let valor = parseInt(input.value) + cambio;
@@ -58,7 +58,6 @@ window.eliminarDelCarrito = async function(index) {
     renderizarListaCarrito();
 };
 
-// 5. Funciones de Interfaz
 function actualizarInterfaz() {
     if (contadorVisual) {
         contadorVisual.innerText = carritoLocal.length;
@@ -68,22 +67,35 @@ function actualizarInterfaz() {
 function renderizarListaCarrito() {
     if (!contenedorItems) return;
     contenedorItems.innerHTML = '';
+    let sumaTotal = 0;
 
     if (carritoLocal.length === 0) {
-        contenedorItems.innerHTML = '<p style="text-align:center;">Tu carrito está vacío.</p>';
+        contenedorItems.innerHTML = '<p style="text-align:center; padding:20px;">Tu carrito está vacío.</p>';
+        if (totalElemento) totalElemento.innerText = "0.00";
         return;
     }
 
     carritoLocal.forEach((prod, index) => {
+        const precioLimpio = parseFloat(prod.precio.replace(/[^0-9.-]+/g, ""));
+        const subtotal = precioLimpio * prod.cantidad;
+        sumaTotal += subtotal;
+
         const item = document.createElement('div');
         item.className = 'item-carrito-lista';
         item.innerHTML = `
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; border-bottom:1px solid #444; padding-bottom:5px;">
-                <span>${prod.cantidad}x ${prod.nombre}</span>
-                <span>${prod.precio}</span>
-                <button onclick="eliminarDelCarrito(${index})" style="background:red; color:white; border:none; cursor:pointer; padding:2px 8px;">X</button>
+            <div style="display:grid; grid-template-columns: 2fr 1fr 40px; align-items:center; margin-bottom:15px; border-bottom:1px solid #333; padding-bottom:10px;">
+                <span style="color: #ffcc00; font-weight: bold;">${prod.cantidad}x ${prod.nombre}</span>
+                <span style="text-align: right; color: #fff;">${subtotal.toFixed(2)} PEN</span>
+                <button onclick="eliminarDelCarrito(${index})" 
+                        style="background:#ff4d4d; color:white; border:none; border-radius:4px; cursor:pointer; margin-left:10px; padding:5px;">
+                    X
+                </button>
             </div>
         `;
         contenedorItems.appendChild(item);
     });
+
+    if (totalElemento) {
+        totalElemento.innerText = sumaTotal.toFixed(2);
+    }
 }
