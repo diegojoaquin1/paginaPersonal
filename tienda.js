@@ -55,7 +55,7 @@ window.eliminarDelCarrito = async function(index) {
     carritoLocal.splice(index, 1);
     await sincronizarCarrito(carritoLocal); 
     actualizarInterfaz();
-    renderizarListaCarrito();
+    renderizarListaCarrito(); 
 };
 
 function actualizarInterfaz() {
