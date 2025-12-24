@@ -1,110 +1,134 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Productos | Goal Temple</title>
     <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <h1>GOAL <span>TEMPLE</span></h1>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="Productos.html">Productos</a>
-            <a href="AboutUs.html">Nosotros</a>
-            <a href="Contact.html">Contacto</a>
-            <span id="auth-status">
-                <a href="login.html">Iniciar sesión</a>
-            </span>
-        </nav>
+      <h1>GOAL <span>TEMPLE</span></h1>
+      <nav>
+        <a href="index.html">Inicio</a>
+        <a href="Productos.html">Productos</a>
+        <a href="AboutUs.html">Nosotros</a>
+        <a href="Contact.html">Contacto</a>
+        <span id="auth-status">
+          <a href="login.html">Iniciar sesión</a>
+        </span>
+      </nav>
     </header>
 
     <div id="productos-nav" class="productos-nav">
-        <a href="#calzado">Calzado</a>
-        <a href="#camisetas">Camisetas</a>
-        <a href="#entrenamiento">Entrenamiento</a>
+      <a href="#calzado">Calzado</a>
+      <a href="#camisetas">Camisetas</a>
+      <a href="#entrenamiento">Entrenamiento</a>
     </div>
 
     <main class="contenedor-vertical">
-        <section id="calzado" class="seccion-categoria">
-            <div class="cabecera-seccion">
-                <h2>Calzado <span>Profesional</span></h2>
-                <p>Domina el terreno con la mejor tecnología en chimpunes.</p>
-            </div>
+      <section id="calzado" class="seccion-categoria">
+        <div class="cabecera-seccion">
+          <h2>Calzado <span>Profesional</span></h2>
+          <p>Domina el terreno con la mejor tecnología en chimpunes.</p>
+        </div>
 
-            <div class="grid-productos-cinco">
-                <div class="tarjeta-producto">
-                    <div class="imagen-placeholder">
-                        <img src="imagenes/calzado_1.png" alt="Adidas Predator" />
-                    </div>
-                    <div class="info-producto">
-                        <h3>Chimpunes Adidas Predator</h3>
-                        <p class="precio">100.00 PEN</p>
-                        <div class="compra-directa">
-                            <div class="selector-cantidad">
-                                <button type="button" onclick="ajustarCantidad(this, -1)">-</button>
-                                <input type="number" value="1" min="1" readonly />
-                                <button type="button" onclick="ajustarCantidad(this, 1)">+</button>
-                            </div>
-                            <button class="btn-comprar" onclick="agregarAlCarrito('Predator', this)">Añadir al carrito</button>
-                        </div>
-                    </div>
+        <div class="grid-productos-cinco">
+          <div class="tarjeta-producto">
+            <div class="imagen-placeholder">
+              <img src="imagenes/calzado_1.png" alt="Adidas Predator" />
+            </div>
+            <div class="info-producto">
+              <h3>Chimpunes Adidas Predator</h3>
+              <p class="precio">100.00 PEN</p>
+              <div class="compra-directa">
+                <div class="selector-cantidad">
+                  <button type="button" onclick="ajustarCantidad(this, -1)">
+                    -
+                  </button>
+                  <input type="number" value="1" min="1" readonly />
+                  <button type="button" onclick="ajustarCantidad(this, 1)">
+                    +
+                  </button>
                 </div>
+                <button
+                  class="btn-comprar"
+                  onclick="agregarAlCarrito('Predator', this)"
+                >
+                  Añadir al carrito
+                </button>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <hr class="divisor-neon" />
+      <hr class="divisor-neon" />
 
-        <section id="camisetas" class="seccion-categoria">
-            <div class="cabecera-seccion">
-                <h2>Camisetas <span>Oficiales</span></h2>
-                <p>Viste la piel de los mejores equipos del mundo.</p>
+      <section id="camisetas" class="seccion-categoria">
+        <div class="cabecera-seccion">
+          <h2>Camisetas <span>Oficiales</span></h2>
+          <p>Viste la piel de los mejores equipos del mundo.</p>
+        </div>
+        <div class="grid-productos-cinco">
+          <div class="tarjeta-producto">
+            <div class="imagen-placeholder">
+              <img src="imagenes/camiseta_1.webp" alt="Camiseta FCB" />
             </div>
-            <div class="grid-productos-cinco">
-                <div class="tarjeta-producto">
-                    <div class="imagen-placeholder">
-                        <img src="imagenes/camiseta_1.webp" alt="Camiseta FCB" />
-                    </div>
-                    <div class="info-producto">
-                        <h3>Camiseta FC Barcelona</h3>
-                        <p class="precio">129.00 PEN</p>
-                        <div class="compra-directa">
-                            <div class="selector-cantidad">
-                                <button type="button" onclick="ajustarCantidad(this, -1)">-</button>
-                                <input type="number" value="1" min="1" readonly />
-                                <button type="button" onclick="ajustarCantidad(this, 1)">+</button>
-                            </div>
-                            <button class="btn-comprar" onclick="agregarAlCarrito('Camiseta FCB', this)">Añadir al carrito</button>
-                        </div>
-                    </div>
+            <div class="info-producto">
+              <h3>Camiseta FC Barcelona</h3>
+              <p class="precio">129.00 PEN</p>
+              <div class="compra-directa">
+                <div class="selector-cantidad">
+                  <button type="button" onclick="ajustarCantidad(this, -1)">
+                    -
+                  </button>
+                  <input type="number" value="1" min="1" readonly />
+                  <button type="button" onclick="ajustarCantidad(this, 1)">
+                    +
+                  </button>
                 </div>
+                <button
+                  class="btn-comprar"
+                  onclick="agregarAlCarrito('Camiseta FCB', this)"
+                >
+                  Añadir al carrito
+                </button>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <div id="cart-modal" class="cart-modal" style="display: none;">
-        <div class="cart-content">
-            <span class="close-cart" onclick="document.getElementById('cart-modal').style.display='none'">&times;</span>
-            <h2>Tu Carrito</h2>
-            <hr>
-            <div id="cart-items-container"></div>
-            <div class="cart-footer">
-                <p>Total: <span id="cart-total">0.00</span> PEN</p>
-                <button class="btn-pagar">Finalizar Compra</button>
-            </div>
+    <div id="cart-modal" class="cart-modal" style="display: none">
+      <div class="cart-content">
+        <span
+          class="close-cart"
+          onclick="document.getElementById('cart-modal').style.display='none'"
+          >&times;</span
+        >
+        <h2>Tu Carrito</h2>
+        <hr />
+        <div id="cart-items-container"></div>
+        <div class="cart-footer">
+          <p>Total: <span id="cart-total">0.00</span> PEN</p>
+          <button class="btn-pagar">Finalizar Compra</button>
         </div>
+      </div>
     </div>
 
     <div class="botones-flotantes">
-        <button id="cart-toggle" class="floating-btn cart-btn">
-            🛒 <span id="cart-count">0</span>
-        </button>
-        <button id="theme-toggle" class="floating-btn">🌙</button>
+      <button id="cart-toggle" class="floating-btn cart-btn">
+        🛒 <span id="cart-count">0</span>
+      </button>
+      <button id="theme-toggle" class="floating-btn">🌙</button>
     </div>
 
-    <script src="tema.js"></script>
-    <script type="module" src="auth-logic.js"></script>
-    <script type="module" src="tienda.js"></script>
-</body>
+<script src="tema.js"></script>
+
+<script type="module" src="auth-logic.js"></script>
+
+<script type="module" src="tienda.js"></script>
+  </body>
 </html>
