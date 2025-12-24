@@ -48,6 +48,9 @@ window.agregarAlCarrito = async function(productoId, boton) {
     
     await sincronizarCarrito(carritoLocal);
     actualizarInterfaz();
+    
+    renderizarListaCarrito(); 
+    
     alert(`Añadido: ${cantidad}x ${nombre}`);
 };
 
