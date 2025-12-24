@@ -587,3 +587,26 @@ article p {
     font-size: 28px;
     cursor: pointer;
 }
+#auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #222;
+    border: 1px solid #00ff41; 
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin-left: 10px;
+}
+
+.user-welcome {
+    color: #ffcc00; 
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.btn-logout {
+    color: #ff4d4d;
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
