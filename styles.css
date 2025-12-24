@@ -833,3 +833,8 @@ article p {
     word-wrap: break-word; 
     line-height: 1.5;
 }
+.btn-borrar:hover {
+    color: #ff0000 !important;
+    transform: scale(1.2);
+    transition: 0.2s;
+}
