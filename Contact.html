@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Goal Temple</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>GOAL <span>TEMPLE</span></h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="Productos.html">Productos</a>
+            <a href="AboutUs.html">Nosotros</a>
+            <a href="Contact.html">Contacto</a>
+            <span id="auth-status">
+                <a href="login.html">Iniciar sesión</a>
+            </span>
+        </nav>
+    </header>
+
+    <main class="contenedor-vertical">
+        <section class="seccion-categoria">
+            <div class="cabecera-seccion">
+                <h2>Contáctanos <span>Directamente</span></h2>
+                <p>¿Tienes dudas sobre algún producto o quieres un pedido personalizado? Escríbenos.</p>
+            </div>
+
+            <div class="contenedor-formulario">
+                <form id="formulario-contacto">
+                    <div class="grupo-input">
+                        <label for="nombre-contacto">Nombre Completo</label>
+                        <input type="text" id="nombre-contacto" placeholder="Tu nombre..." required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="email-contacto">Correo Electrónico</label>
+                        <input type="email" id="email-contacto" placeholder="tu@correo.com" required>
+                    </div>
+                    <div class="grupo-input">
+                        <label for="mensaje-contacto">Mensaje</label>
+                        <textarea id="mensaje-contacto" rows="5" placeholder="Cuéntanos qué necesitas..." required></textarea>
+                    </div>
+                    <button type="submit" id="btn-enviar" class="btn-enviar-contacto">Enviar Mensaje</button>
+                </form>
+                <div id="status-mensaje" style="display:none; margin-top:20px; padding: 10px; border-radius: 5px; text-align:center; font-weight: bold;"></div>
+            </div>
+        </section>
+    </main>
+
+    <div class="botones-flotantes">
+        <a href="https://wa.me/51997134305?text=Hola%20Diego,%20vengo%20de%20tu%20web" 
+           class="floating-btn whatsapp-btn" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
+        <button id="theme-toggle" class="floating-btn">🌙</button>
+    </div>
+   <section class="seccion-categoria">
+    <div class="cabecera-seccion">
+        <h2>Mi Historial de <span>Consultas</span></h2>
+    </div>
+    <div id="contenedor-mensajes-nube" class="contenedor-nosotros-grid">
+        <p style="color: #666; text-align: center;">Cargando tus mensajes...</p>
+    </div>
+</section>
+
+    <script src="tema.js"></script>
+    <script type="module" src="auth-logic.js"></script>
+    <script type="module" src="contacto.js"></script>
+</body>
+</html>
